@@ -1,7 +1,7 @@
-## Challenge FrontEndMentor
+## JS - Exercises
 <br>
 
-### Calculator Frontendmentor
+### Calculator - Frontendmentor
 [Link to challange](https://www.frontendmentor.io/challenges/calculator-app-9lteq5N29)
 
 <table>
