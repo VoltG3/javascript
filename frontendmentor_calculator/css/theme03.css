@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+:root {
+  --bg:                         hsl(268, 75%, 9%);    
+  --bg_switch--keyboard:        hsl(268, 71%, 12%);                                      
+  --sliderPosition--color:      hsl(176, 100%, 44%);
+  --bg_screen:                  hsl(268, 71%, 12%);   
+  --keys:                       hsl(268, 47%, 21%);
+  --keys--SHADOW:               hsl(290, 70%, 36%);
+  --key_del--reset:             hsl(281, 89%, 26%);
+  --key_del--reset--SHADOW:     hsl(285, 91%, 52%);
+  --key_switch--result:         hsl(176, 100%, 44%);
+  --key_switch--result--SHADOW: hsl(177, 92%, 70%);
+  --txt_dark:                   hsl(198, 20%, 13%);
+  --txt_light:                  rgb(255, 255, 255); /* hsl(0, 0, 100%); */  
+  --txt_yellow:                 hsl(52, 100%, 62%); 
+}
+
+ body              { background: var(--bg);                                                                                                                }
+.header            {                                          color: var(--txt_yellow);                                                                    }
+/* switch -> js */
+.screen            { background: var(--bg_screen);            color: var(--txt_yellow);                                                                    }
+.keyboard          { background: var(--bg_switch--keyboard);                                                                                               }
+.btn               { background: var(--keys);                 color: var(--txt_yellow);           box-shadow: 0 5px 0 0 var(--keys--SHADOW);               }
+.btn:nth-child(5)  { background: var(--key_del--reset);       color: var(--txt_light) !important; box-shadow: 0 5px 0 0 var(--key_del--reset--SHADOW);     }
+.btn:nth-child(21) { background: var(--key_del--reset);       color: var(--txt_light) !important; box-shadow: 0 5px 0 0 var(--key_del--reset--SHADOW);     }
+.btn:nth-child(22) { background: var(--key_switch--result);   color: var(--txt_dark)  !important; box-shadow: 0 5px 0 0 var(--key_switch--result--SHADOW); }
+.footer            {                                          color: var(--footer--p);                                                                     }
+.footer a          {                                          color: var(--footer--a);                                                                     } 
+
+* { transition: ease-in 0.3s; }
+
+/*
+:root {
+  --theme-3_bg:                       hsl(268, 75%, 9%);    
+  --theme-3_bg_switch_keypad_cout:    hsl(268, 71%, 12%);
+  --theme-3_key:                      hsl(268, 47%, 21%);
+  --theme-3_key_SHADOW:               hsl(290, 70%, 36%);
+  --theme-3_key_del_reset:            hsl(281, 89%, 26%);
+  --theme-3_key_SHADOW_del_reset:     hsl(285, 91%, 52%);
+  --theme-3_key_switch_result:        hsl(176, 100%, 44%);
+  --theme-3_key_SHADOW_switch_result: hsl(177, 92%, 70%);
+  --theme-3_txt_dark:                 hsl(198, 20%, 13%);
+  --theme-3_txt_light:                hsl(0, 0, 100%);
+  --theme-3_txt_yellow:               hsl(52, 100%, 62%);   
+}*/

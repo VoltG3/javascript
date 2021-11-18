@@ -1,0 +1,115 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: MS-DOS;
+  src: url(../fonts/MorePerfectDOSVGA.ttf);
+} /* https://laemeur.sdf.org/fonts/ */
+
+
+
+  :root {
+    --beige: beige;
+    --bg:    rgba(131, 128, 128, 0.979);
+    --b:     black;
+    --w:     white;
+    --r:     red;
+    --g:     green; }
+
+     html    { background-color: var(--bg);                 }
+    .page    { background-color: var(--w);                  
+               box-shadow: 0px 15px 30px 5px var(--b);     } 
+    .INDEXOF { background-color: var(--r); color: var(--w); } /* for js */
+    .TARGET  { background-color: var(--g); color: var(--w); } /* for js */
+
+
+  html, body {
+    height: 100%;
+    margin: 0 auto; 
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+      max-width: 1440px;
+      height: 100%;
+    font-family: MS-DOS;
+    font-size: 16px;
+  }
+  
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+      max-width: 1440px;
+      height: 100%;
+  }
+  
+
+  .page {
+    display: flex;
+    flex-direction: column;
+      height: 700px;
+    border: solid 0.5px var(--b);
+  }
+    
+    .header,
+    .footer {
+      display: flex;
+      background-color: var(--b);
+      color: white;
+        width: 100%;
+        height: 37px;
+    }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+          width: 1440px;
+          height: 100%;
+      }
+
+        .line_1 {
+          display: flex;
+          flex-direction: column;
+            width: 1440px;
+            height: 100px;
+          border-bottom: solid 0.5px var(--b);
+         } .line_1 div { padding: 10px; } 
+
+        .line_2 { 
+          display: flex;
+          flex-direction: row;
+            width: 1440px;
+            height: 100%;
+        }
+
+          .column_menu_1 {
+            display: flex;
+            flex-direction: column;
+              width: 150px;
+              height: 100%;
+            margin: 5px;
+          } .btn_genereted { margin-left: 5px;} /* js */
+                
+          .column_menu_2 {
+            display: flex;
+              width: 100px;
+              height: 100%;
+            margin: 5px;
+            background-color: var(--beige);
+          }
+
+          .column_menu_3 {
+            display: flex;
+              width: 890px;
+              height: 100%;
+            margin: 5px;
+          }
+                    
+          .column_menu_4 {
+            display: flex;
+              width: 300px;
+              height: 100%;
+            border-left: solid 0.5px var(--b);
+          } 

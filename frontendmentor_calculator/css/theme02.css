@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+:root {
+  --bg:                         hsl(0, 0%, 90%); 
+  --bg_switch--keyboard:        hsl(0, 5%, 81%);
+  --sliderPosition--color:      hsl(6, 70%, 34%);
+  --bg_screen:                  hsl(0, 0%, 93%);
+  --keys:                       hsl(45, 7%, 89%);
+  --keys--SHADOW:               hsl(35, 11%, 61%);
+  --key_del--reset:             hsl(185, 42%, 37%);
+  --key_del--reset--SHADOW:     hsl(185, 58%, 25%);
+  --key_switch--result:         hsl(25, 98%, 40%);
+  --key_switch--result--SHADOW: hsl(25, 99%, 27%);
+  --txt_dark:                   hsl(60, 10%, 19%);
+  --txt_light:                  rgb(255, 255, 255); /* hsl(0, 0, 100%); */  
+}
+
+ body              { background: var(--bg);                                                                                                                }
+.header            {                                          color: var(--txt_dark);                                                                      }
+/* switch -> js */
+.screen            { background: var(--bg_screen);            color: var(--txt_dark);                                                                      }
+.keyboard          { background: var(--bg_switch--keyboard);                                                                                               }
+.btn               { background: var(--keys);                 color: var(--txt_dark);             box-shadow: 0 5px 0 0 var(--keys--SHADOW);               }
+.btn:nth-child(5)  { background: var(--key_del--reset);       color: var(--txt_light) !important; box-shadow: 0 5px 0 0 var(--key_del--reset--SHADOW);     }
+.btn:nth-child(21) { background: var(--key_del--reset);       color: var(--txt_light) !important; box-shadow: 0 5px 0 0 var(--key_del--reset--SHADOW);     }
+.btn:nth-child(22) { background: var(--key_switch--result);   color: var(--txt_light) !important; box-shadow: 0 5px 0 0 var(--key_switch--result--SHADOW); }
+.footer            {                                          color: var(--footer--p);                                                                     }
+.footer a          {                                          color: var(--footer--a);                                                                     } 
+
+* { transition: ease-in 0.3s; }
+
+/*
+:root {
+  --theme-2_bg:                       hsl(0, 0%, 90%); 
+  --theme-2_bg_switch_keypad:         hsl(0, 5%, 81%);
+  --theme-2_bg_cout:                  hsl(0, 0%, 93%);
+  --theme-2_key:                      hsl(45, 7%, 89%);
+  --theme-2_key_SHADOW:               hsl(35, 11%, 61%);
+  --theme-2_key_del_reset:            hsl(185, 42%, 37%);
+  --theme-2_key_SHADOW_del_reset:     hsl(185, 58%, 25%);
+  --theme-2_key_switch_result:        hsl(25, 98%, 40%);
+  --theme-2_key_SHADOW_switch_result: hsl(25, 99%, 27%);
+  --theme-2_txt_dark:                 hsl(60, 10%, 19%);
+  --theme-2_txt_light:                hsl(0, 0, 100%);  
+}*/

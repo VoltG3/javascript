@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<HTML lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" type="text/css" href="css/styles.css" />
+        <script type="text/javascript" src="js/arrays.js"></script>
+        <script type="text/javascript" src="js/strings.js"></script>
+        
+        <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
+        <!-- <script type="text/javascript"></script> -->
+          <title>JS - arrays</title>   
+    </head>
+    <body>
+<main>
+      <div class="page">
+        <div class="header"></div>
+          <div class="container">
+            <div></div>
+            <div class="line_1">
+                <div id="cout_string"></div>
+            </div>
+
+            <div class="line_2">
+              <div class="column_menu_1">
+                <input type="button" value="Null"          onclick="arr_reset();">              <!--   F. { call { null   :: 'array[]'  RESET                  -->
+                <input type="button" value="cout ARRAY"    onclick="arr_current();">            <!--   F. { call { cout   :: 'array[]'  CURRENT                -->
+                <input type="button" value="add to END"    onclick="arr_ADD_end();">            <!--   F. { call { add    :: 'array[]' .push      to END       -->
+                <input type="button" value="add to STRT"   onclick="arr_ADD_start();">          <!--   F. { call { add    :: 'array[]' .unshift   to START     -->
+                <input type="button" value="SPLICE add"    onclick="arr_SPLICE_add();">         <!--   F. { call { add    :: 'array[]' .splice    [] ADD       -->
+                <input type="button" value="rmv from END"  onclick="arr_REMOVE_end();">         <!--   F. { call { remove :: 'array[]' .pop     from END       -->
+                <input type="button" value="rmv from STRT" onclick="arr_REMOVE_start();">       <!--   F. { call { remove :: 'array[]' .shift   from START     -->
+                <input type="button" value="SPLICE rmv"    onclick="arr_SPLICE_rmv();">         <!--   F. { call { add    :: 'array[]' .splice    [] REMOVE    -->
+                <input type="button" value="IndexOff"      onclick="arr_INDEXOF();">            <!--   F. { call { search :: 'array[]' .indexof  [X] frst.elm. -->
+              </div> 
+              <div class="column_menu_2">
+
+              </div>
+              <div class="column_menu_3">
+                <div id="cout_btn"></div>   
+              </div>
+        
+              <div class="column_menu_4">
+                <div id="cout"></div>
+              </div>
+            </div>
+          </div>
+        <div class="footer"></div>
+      </div> 
+    </main>                                     
+  </body>
+</HTML>
