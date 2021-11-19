@@ -6,7 +6,7 @@
 
 <table>
   <tr>
-    <td style ="width: 80%;" ><img src="https://github.com/VoltG3/JS/blob/master/frontendmentor_calculator/desktop.png" alt="img"></td>
+    <td style ="width: 80%;" ><img src="https://github.com/VoltG3/JS/blob/master/frontendmentor_calculator/desktop.png.png" alt="img"></td>
   <tr>
  </table>
  
