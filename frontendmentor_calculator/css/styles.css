@@ -87,8 +87,12 @@ body {
         ". . . . .";
       padding: 20px;
     } 
-    
-      .lang { /* btn -> RESET & RESULT */
+      /* btn -> RESET & RESULT */
+      .lang_1 { 
+        grid-column: span 3;
+      }
+
+      .lang_2 {
         grid-column: span 2;
       }
 
@@ -105,9 +109,14 @@ body {
        /* box-shadow: 0 4px 0 0;*/
         /*margin-top: 3px;*/
       }
-
-        .btn:nth-child(4),
-        .btn:nth-child(17) {
+        .btn:nth-child(4),    /* ADD */
+        .btn:nth-child(5),    /* DEL */
+        .btn:nth-child(9),    /* SUBTRACT */
+        .btn:nth-child(14),   /* SUBLIME */
+        .btn:nth-child(18),   /* PRECENT */
+        .btn:nth-child(19),   /* DIVIDE */
+        .btn:nth-child(21),   /* RESET */
+        .btn:nth-child(22) {  /* RESULT */ 
           font-size: 18px;
         }
 

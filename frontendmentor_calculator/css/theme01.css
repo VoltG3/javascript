@@ -12,7 +12,9 @@
   --key_switch--result:         hsl(6, 63%, 50%);
   --key_switch--result--SHADOW: hsl(6, 70%, 34%);
   --txt_dark:                   hsl(221, 14%, 31%);
-  --txt_light:                  rgb(255, 255, 255); /* hsl(0, 0, 100%); */ 
+  --txt_light:                  rgb(255, 255, 255); /* hsl(0, 0, 100%); */
+  --footer--p:                  hsl(30, 25%, 89%);
+  --footer--a:                  hsl(28, 16%, 65%);
 }
 
  body              { background: var(--bg);                                                                                                                }

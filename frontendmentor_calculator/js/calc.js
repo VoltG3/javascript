@@ -10,7 +10,7 @@ var counter = null;             // for    -> result after each operation
 var denominator = null;         // for    -> integer that performs the operation
 var targetOperation = "";       // taget  -> operator                                    !# operation --> operator
 var targetPosition = null;      // target -> operations_Symbol_Position
-var precent = false;            // target -> operation precent, do not add last variable to array !
+var Precent = false;            // target -> operation precent, do not add last variable to array !
 
 
 function operation(target) {
@@ -27,7 +27,7 @@ function operation(target) {
       break;
   // ---------------------------------------------------------------------------------------------------- [  MULTUPLE ]
     case 1.3:           
-      operator = "*"; 
+      operator = "x"; 
       void addToArray();     
       break;
   // ---------------------------------------------------------------------------------------------------- [    DIVIDE ]
@@ -38,20 +38,20 @@ function operation(target) {
   // ---------------------------------------------------------------------------------------------------- [   PRECENT ]
     case 1.5:           
       operator = "%";
-      precent = true;      
+      Precent = true;      
       void addToArray();     
       break;
-  // ---------------------------------------------------------------------------------------------------- [         % ]
+  // ---------------------------------------------------------------------------------------------------- [         x ]
     case 1.6:           
       operator = "%"; 
       void addToArray();     
       break;
-  // ---------------------------------------------------------------------------------------------------- [         % ]
+  // ---------------------------------------------------------------------------------------------------- [         x ]
     case 1.7:           
       operator = "%"; 
       void addToArray();     
       break;
-  // ---------------------------------------------------------------------------------------------------- [         % ]
+  // ---------------------------------------------------------------------------------------------------- [         x ]
     case 1.8:           
       operator = "%"; 
       void addToArray();     
@@ -110,49 +110,71 @@ function operation(target) {
       void reset();
     break;
   // ---------------------------------------------------------------------------------------------------- [   RESULT   ]
-    case 8: 
-      if(precent != true) {
-        let new_var0 = arr.push (variable);     // add last variable to array before next operation ...
-      } else {                                  // ... OR if its precent, then do not add and reset ...
-        precent = false;                        // ... 
+    case 8:
+      if(Precent != true) { 
+        let new_var0 = arr.push (variable);     // add last variable to array before canculating operation
+        variable = algebra();                   // RESULT = void canculating process
+      } else {                                  // DELETE last three elements from the array
+        
+          var precent_counter = null;           // #!         
+                                    arr.pop();  // delete precent operator -> arr.length -1
+          var precent_denominator = arr.pop();  // get precent denominator -> arr.length -1
+          var precent_operator    = arr.pop();  // get precent operator    -> arr.length .1  
+              Precent = false;                  // reset Precent bool
+
+            // #! get precent counter from rest of array | #! RESULT = void canculating process 
+            variable = precent(precent_counter = algebra(), precent_denominator, precent_operator);      
+            
+
+          console.log("precent_operator -> ", precent_operator, " precent_denominator --> ", precent_denominator); 
       }
       
-      for(let i = 0; i < arr.length; i++){
-        if(i == 0) { 
-          counter = Number(arr[i]);
-          console.log("first iteration and first COUNTER", counter);
+      function algebra(){
+        console.info(arr);
+        for(let i = 0; i < arr.length; i++){
+          if(i == 0) { 
+            counter = Number(arr[i]);
+            console.log("first iteration and first COUNTER", counter);
+          }
+        
+          if(isNaN(arr[i])) {                   // :: if content of index is not number ..
+            targetOperation = arr[i];           // :: .. save operation symbol .. 
+            targetPosition = i;                 // :: .. save operation symbol position
+            
+            void getDenominator();
+            console.log("AFTER getDenominator COUNTER --> ", counter, " DENOMINATOR -->", denominator, " targetPosition -->", targetPosition);
+              if(targetOperation == "+") { counter =      add(counter, denominator); } // to calculate ..
+              if(targetOperation == "-") { counter = subtract(counter, denominator); } // to calculate ..
+              if(targetOperation == "x") { counter = multiple(counter, denominator); } // to valculate ..
+              if(targetOperation == "/") { counter =   divide(counter, denominator); } // to calculate ..
+          }   
+        } arr.length = 0;                       // :: reset array
+          variable = counter;                   // :: result is new variable
+          console.log("result --> ", counter);
+        
+        function getDenominator(){              // Function { get next denominator
+          for(let i = 0; i < arr.length; i++) {
+            if(i == targetPosition + 1) {
+              denominator = Number(arr[i]);
+            } 
+          } console.log("FIRST getDenominator COUNTER --> ", counter, " DENOMINATOR -->", denominator, " targetPosition -->", targetPosition);
         }
-      
-        if(isNaN(arr[i])) {                   // :: if content of index is not number ..
-          targetOperation = arr[i];           // :: .. save operation symbol .. 
-          targetPosition = i;                 // :: .. save operation symbol position
-          
-          void getDenominator();
-          console.log("AFTER getDenominator COUNTER --> ", counter, " DENOMINATOR -->", denominator, " targetPosition -->", targetPosition);
-            if(targetOperation == "+") { counter =      add(counter, denominator); } // to calculate ..
-            if(targetOperation == "-") { counter = subtract(counter, denominator); } // to calculate ..
-            if(targetOperation == "*") { counter = multiple(counter, denominator); } // to valculate ..
-            if(targetOperation == "/") { counter =   divide(counter, denominator); } // to calculate ..
-            if(targetOperation == "%") { counter =  precent(counter, denominator); } // to canculate ..
-        }   
-      } arr.length = 0;                       // :: reset array
-        variable = counter;                   // :: result is new variable
-        console.log("result --> ", counter);
-      
-      function getDenominator(){              // Function { get next denominator
-        for(let i = 0; i < arr.length; i++) {
-          if(i == targetPosition + 1) {
-            denominator = Number(arr[i]);
-          } 
-        } console.log("FIRST getDenominator COUNTER --> ", counter, " DENOMINATOR -->", denominator, " targetPosition -->", targetPosition);
-      } 
-      
+        return variable; 
+      }
+
       // Functions { to calculate new counter
-      function add(a, b)      { return a + b; }
+      function add(a, b) { return a + b; }
       function subtract(a, b) { return a - b; }
       function multiple(a, b) { return a * b; }
-      function divide(a, b)   { return a / b; }
-      function precent(a, b)  { return a / b; } // precent !!!!!!!
+      function divide(a, b) { return a / b; }
+
+      function precent(a, b, operator) { 
+        if(operator == "-") { return a / 100 * b; }
+        if(operator == "+") { return a / 100 * b + a; }
+        if(operator == "x") { return a / b; }
+        if(operator == "/") { return a * b; }
+      }
+
       break;
 
   } void std_cout(arr, variable); 
@@ -195,7 +217,7 @@ function std_cout(arr, variable) {
     str = variable;
     console.log("array is empty!");
   } else {
-    str = arr.join('') + " " + variable;
+    str = arr.join('') + "" + variable;
   } output.innerHTML = str;
     console.log("--> ", str);
 }
