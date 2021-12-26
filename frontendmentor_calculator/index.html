@@ -8,7 +8,13 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
     <link rel="stylesheet" type="text/css" href="css/switch_thema.css" />
       <script type="text/javascript" src="js/switch_theme.js"></script> 
-      <script type="text/javascript" src="js/calc.js"></script> 
+<!--       <script type="text/javascript" src="js/calc_precent.js"></script> 
+      <script type="text/javascript" src="js/calc_power.js"></script> -->
+   <!--    <script type="text/javascript" src="js/calc_brackets.js"></script> -->
+      <script type="text/javascript" src="js/delete.js"></script>   
+      <script type="text/javascript" src="js/calc_algebra.js"></script>   
+      <script type="text/javascript" src="js/calc.js"></script>
+     
           <title>Frontend Mentor | Calculator app</title>
       
       <script type="text/javascript">
@@ -43,32 +49,32 @@
 
       <div class="keyboard">
         <!-- ROW 1 -->
-        <div class="btn" onclick="add_Value(7)">7</div>
-        <div class="btn" onclick="add_Value(8)">8</div>
-        <div class="btn" onclick="add_Value(9)">9</div> 
-        <div class="btn" onclick="operation(1.1)">+</div>               <!-- operation -->
-        <div class="btn" onclick="operation(1)">DEL</div>               <!-- operation -->
+        <div class="btn" onclick="addValue(7)">7</div>
+        <div class="btn" onclick="addValue(8)">8</div>
+        <div class="btn" onclick="addValue(9)">9</div> 
+        <div class="btn" onclick="operation(1.1)">+</div>                 <!-- operation -->
+        <div class="btn" onclick="operation(3)">DEL</div>                 <!-- operation -->
         <!-- ROW 2 -->
-        <div class="btn" onclick="add_Value(4)">4</div>
-        <div class="btn" onclick="add_Value(5)">5</div> 
-        <div class="btn" onclick="add_Value(6)">6</div>
-        <div class="btn" onclick="operation(1.2)">-</div>               <!-- operation -->
-        <div class="btn" onclick="operation(1.6)"></div>                <!-- operation #########-->
+        <div class="btn" onclick="addValue(4)">4</div>
+        <div class="btn" onclick="addValue(5)">5</div> 
+        <div class="btn" onclick="addValue(6)">6</div>
+        <div class="btn" onclick="operation(1.2)">-</div>                 <!-- operation  -->
+        <div class="btn" onclick="operation(1.6)"><p><sub>x</sub>2</p></div>  <!-- operation  -->
         <!-- ROW 3 -->
-        <div class="btn" onclick="add_Value(1)">1</div> 
-        <div class="btn" onclick="add_Value(2)">2</div> 
-        <div class="btn" onclick="add_Value(3)">3</div>
-        <div class="btn" onclick="operation(1.3)">x</div>               <!-- opertaion -->
-        <div class="btn" onclick="operation(1.7)"></div>                <!-- operation #########-->
+        <div class="btn" onclick="addValue(1)">1</div> 
+        <div class="btn" onclick="addValue(2)">2</div> 
+        <div class="btn" onclick="addValue(3)">3</div>
+        <div class="btn" onclick="operation(1.3)">x</div>                 <!-- opertaion -->
+        <div class="btn" onclick="operation(1.7)">(</div>                  <!-- operation #########-->
         <!-- ROW 4 -->
-        <div class="btn" onclick="add_Value(0)">0</div>
-        <div class="btn" onclick="operation(4)">.</div>                 <!-- operation --> 
-        <div class="btn" onclick="operation(1.5)">%</div>               <!-- operation -->
-        <div class="btn" onclick="operation(1.4)">/</div>               <!-- operation -->
-        <div class="btn" onclick="operation(1.8)"></div>                <!-- operation #########-->
+        <div class="btn" onclick="addValue(0)">0</div>
+        <div class="btn" onclick="operation(1.9)">.</div>                   <!-- operation --> 
+        <div class="btn" onclick="operation(1.5)">%</div>                 <!-- operation -->
+        <div class="btn" onclick="operation(1.4)">/</div>                 <!-- operation -->
+        <div class="btn" onclick="operation(1.8)">)</div>                  <!-- operation #########-->
         <!-- ROW 5 -->
-        <div class="btn lang_1" onclick="operation(7)">RESET</div>      <!-- operation -->
-        <div class="btn lang_2" onclick="operation(8)">=</div>          <!-- operation -->
+        <div class="btn lang_1" onclick="operation(2)">RESET</div>        <!-- operation -->
+        <div class="btn lang_2" onclick="operation(4)">=</div>            <!-- operation -->
       </div>
 
       <div class="footer">

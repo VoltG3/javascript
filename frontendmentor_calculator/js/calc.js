@@ -1,224 +1,180 @@
 
-// default onload
-var variable = 0;
-var dot = false;      // dot  -> controll count of 'dots'
-var arr = [];         // calc -> string
-var operator = "";    // push -> operator to arr 
+// --------------------------------------------------------------------
+//  DEFAULT - onload
+// ---------------------------------------------------------------------
 
-// switch [ POST 8 ]
-var counter = null;             // for    -> result after each operation
-var denominator = null;         // for    -> integer that performs the operation
-var targetOperation = "";       // taget  -> operator                                    !# operation --> operator
-var targetPosition = null;      // target -> operations_Symbol_Position
-var Precent = false;            // target -> operation precent, do not add last variable to array !
+var variable = 0;     // first :: input variable
+var arr = [];         // after :: add variable to the array
+var dot = false;      //  ctrl :: count of dots in one variable
+var operator = "";    //   for :: add math operator to the array
 
+// ---------------------------------------------------------------------
+//  BUTTON INNPUTS ROUTER
+// ---------------------------------------------------------------------
 
 function operation(target) {
   switch(target) {
-  // ---------------------------------------------------------------------------------------------------- [       ADD ]
-    case 1.1: 
-      operator = "+"; 
-      void addToArray();
-      break;
-  // ---------------------------------------------------------------------------------------------------- [  SUBTRACT ]
-    case 1.2:
-      operator = "-"; 
-      void addToArray();         
-      break;
-  // ---------------------------------------------------------------------------------------------------- [  MULTUPLE ]
-    case 1.3:           
-      operator = "x"; 
-      void addToArray();     
-      break;
-  // ---------------------------------------------------------------------------------------------------- [    DIVIDE ]
-    case 1.4:           
-      operator = "/"; 
-      void addToArray();     
-      break;
-  // ---------------------------------------------------------------------------------------------------- [   PRECENT ]
-    case 1.5:           
-      operator = "%";
-      Precent = true;      
-      void addToArray();     
-      break;
-  // ---------------------------------------------------------------------------------------------------- [         x ]
-    case 1.6:           
-      operator = "%"; 
-      void addToArray();     
-      break;
-  // ---------------------------------------------------------------------------------------------------- [         x ]
-    case 1.7:           
-      operator = "%"; 
-      void addToArray();     
-      break;
-  // ---------------------------------------------------------------------------------------------------- [         x ]
-    case 1.8:           
-      operator = "%"; 
-      void addToArray();     
-      break;
-  // ---------------------------------------------------------------------------------------------------- [  DELETE  ]
-    case 1:
-      let before = isItFloat(variable);       // :: [ * ]
-      let new_str = String(variable);         // :: convert var -> str
-          new_str = new_str.slice(0, -1);     // :: delete last -> char
-          variable = Number(new_str);         // :: convert str -> var 
-      let after = isItFloat(variable);        // :: [ * ]
+    case 1.1: void addOperator(operator = "+"); break; //  [       ADD ]
+    case 1.2: void addOperator(operator = "-"); break; //  [  SUBTRACT ] 
+    case 1.3: void addOperator(operator = "x"); break; //  [  MULTUPLE ]
+    case 1.4: void addOperator(operator = "/"); break; //  [    DIVIDE ]
+    case 1.5: void addOperator(operator = "%"); break; //  [   PRECENT ] 
+    case 1.6: void addOperator(operator = "p"); break; //  [       POW ] 
+    case 1.7: void addOperator(operator = "("); break; //  [         ( ]
+    case 1.8: void addOperator(operator = ")"); break; //  [         ) ]
+    case 1.9: void dots();                      break; //  [       DOT ]
+    case 2:   void reset();                     break; //  [     RESET ]
+    case 3:   void del();                       break; //  [    DELETE ]                                     
+    case 4:                                            //  [    RESULT ]  sequence
       
-      if(before == true  || after != false) { dot = false; } // :: [ * ] before -> it was float        -> reset dot
-      if(before == false && after == false) { dot = false; } // ::       after  -> its still not float -> reset dot                     
-      if(before == true  && after == true)  { dot = true;  } // ::       after  -> its still is float  -> reset NOT
-        
-      if(variable == 0) {                     // :: if variable is empty
-        void GetNextVariable();
-      }
-      
-      function GetNextVariable(){
-        for(let i = 0; i < arr.length; i++) {
-          if(i == arr.length && isNan(arr[i])) {
-            arr.length -= 1;
-            let new_arr = arr.pop();
-            void GetNextVariable();
-          } else {
-            variable = arr[i];
-            arr.length -= 1;
-            let new_arr = arr.pop();
-          }
-        }
-      }
+      arr = [10, "+", 20, "*", 3, "-", 18, "/", 2, "+", 17, "*", 2]; 
+      var arr_tmp = arr.slice();
 
-      function isItFloat(variable) {
-        let isFloat = null;
-        if(variable % 1 != 0) {
-          isFloat = true;
-        } else {
-          isFloat = false;
-        } return isFloat;
-      }
-      
-      break;
-  // ---------------------------------------------------------------------------------------------------- [    DOT    ]
-    case 4: 
-      if(dot == false) {                      // ::
-        variable += ".";                      // :: add        -> dot  
-        dot = true;                           // :: ctrl count -> dot
-      } else {                                // ::
-        variable = variable; }                // ::
-        console.log("DOT --> ", dot);
+      arr = [];
+      variable = algebra(arr_tmp);
+
     break;
-  // ---------------------------------------------------------------------------------------------------- [   RESET    ]
-    case 7:           
-      void reset();
-    break;
-  // ---------------------------------------------------------------------------------------------------- [   RESULT   ]
-    case 8:
-      if(Precent != true) { 
-        let new_var0 = arr.push (variable);     // add last variable to array before canculating operation
-        variable = algebra();                   // RESULT = void canculating process
-      } else {                                  // DELETE last three elements from the array
-        
-          var precent_counter = null;           // #!         
-                                    arr.pop();  // delete precent operator -> arr.length -1
-          var precent_denominator = arr.pop();  // get precent denominator -> arr.length -1
-          var precent_operator    = arr.pop();  // get precent operator    -> arr.length .1  
-              Precent = false;                  // reset Precent bool
-
-            // #! get precent counter from rest of array | #! RESULT = void canculating process 
-            variable = precent(precent_counter = algebra(), precent_denominator, precent_operator);      
-            
-
-          console.log("precent_operator -> ", precent_operator, " precent_denominator --> ", precent_denominator); 
-      }
-      
-      function algebra(){
-        console.info(arr);
-        for(let i = 0; i < arr.length; i++){
-          if(i == 0) { 
-            counter = Number(arr[i]);
-            console.log("first iteration and first COUNTER", counter);
-          }
-        
-          if(isNaN(arr[i])) {                   // :: if content of index is not number ..
-            targetOperation = arr[i];           // :: .. save operation symbol .. 
-            targetPosition = i;                 // :: .. save operation symbol position
-            
-            void getDenominator();
-            console.log("AFTER getDenominator COUNTER --> ", counter, " DENOMINATOR -->", denominator, " targetPosition -->", targetPosition);
-              if(targetOperation == "+") { counter =      add(counter, denominator); } // to calculate ..
-              if(targetOperation == "-") { counter = subtract(counter, denominator); } // to calculate ..
-              if(targetOperation == "x") { counter = multiple(counter, denominator); } // to valculate ..
-              if(targetOperation == "/") { counter =   divide(counter, denominator); } // to calculate ..
-          }   
-        } arr.length = 0;                       // :: reset array
-          variable = counter;                   // :: result is new variable
-          console.log("result --> ", counter);
-        
-        function getDenominator(){              // Function { get next denominator
-          for(let i = 0; i < arr.length; i++) {
-            if(i == targetPosition + 1) {
-              denominator = Number(arr[i]);
-            } 
-          } console.log("FIRST getDenominator COUNTER --> ", counter, " DENOMINATOR -->", denominator, " targetPosition -->", targetPosition);
-        }
-        return variable; 
-      }
-
-      // Functions { to calculate new counter
-      function add(a, b) { return a + b; }
-      function subtract(a, b) { return a - b; }
-      function multiple(a, b) { return a * b; }
-      function divide(a, b) { return a / b; }
-
-      function precent(a, b, operator) { 
-        if(operator == "-") { return a / 100 * b; }
-        if(operator == "+") { return a / 100 * b + a; }
-        if(operator == "x") { return a / b; }
-        if(operator == "/") { return a * b; }
-      }
-
-      break;
-
   } void std_cout(arr, variable); 
 } 
 
+// --------------------------------------------------------------------------------------- [ POST A]
+//  UPPDATE addValue - add digit to the variable
+//  UPPDATE addOperator - add operator after variable was added
+// ---------------------------------------------------------------------------------------
 
-function addToArray() {
-  let newVariable = arr.push (variable);  // :: Add last variable to array before next operation
-  let newOperator = arr.push (operator);  // :: Add target operator to array
-    dot = false;                          // :: Reset -> dot
-    variable = "";                        // :: Reset -> variable
+function addValue(value) {
+  if(variable == 0 && value == 0 && dot == false){  // :: not allow --> 00
+     variable = 0; 
+     console.log("[ ADD VALUE ] - rejected! value 00 not allowed", variable)
+  }
+
+  if(variable == 0 && value == 0 && dot == true){   // ::     allow --> 0.0
+     variable += "" + value;  
+     void mes_1();
+  } else {
+    variable = Number(variable += "" + value);      // :: add next value to variable
+    void mes_1();
+  } void std_cout(arr, variable); 
+  
+  function mes_1(){
+    console.log("[ ADD VALUE ] - variable gotted new value", variable)  
+  }
 }
 
+function addOperator(operator){          
+  var getOperator = false;
+  var getBrackets = false;
+  var getOperatorReverse = false;
+  var getBracketsReverse = false;
+  var getArrEmpty = false;
+ 
+  console.log("addOperator ---> varaible", variable) 
 
-function reset() {
+  if(variable == isNaN(variable)) {   
+    var el = arr.slice(-1);
+
+    // CONTROLL EXCEPTIONS - not allowed two operators like '--' or '-+'...
+    //                     -     allowed two operators like '-(' or '(-'...
+    if(arr.length == 0  && ForArrEmpty() == true){ variable = ""; void addToArray() }
+    if(elBefore() == true && operAfter() == true){                void addToArray() } else { variable = variable; void mes_2() }
+    if(bracketsBefore() == true && operatorBeforeReverse() == true){ void addToArray() } else { variable = variable; void mes_2() } 
+    // -  first if - array is empty then allow first '-' or '('
+    // - second if - allow add brackets after any operator
+    // -  third if - allow add any operator after brackets
+  } else {
+    void addToArray();
+  } console.table("[ ADD OPERATOR ] - ", variable)
+
+  function elBefore(){
+   let x = false;
+      if(el[0] == '+'){ x = true; }
+      if(el[0] == '-'){ x = true; }
+      if(el[0] == 'x'){ x = true; }
+      if(el[0] == '/'){ x = true; }
+      if(el[0] == '('){ x = true; }
+      if(el[0] == ')'){ x = true; }
+    return x;
+  }
+
+  function operAfter(){
+    let x = false;
+    if(operator == '('){ x = true; }
+    if(operator == ')'){ x = true; }
+    return x;
+  }
+
+  //---
+  function bracketsBefore(){
+    let x = false;
+      if(el[0] == '('){ x = true; }
+      if(el[0] == ')'){ x = true; }
+    return x;
+  }
+  // ---
+  function operatorBeforeReverse(){
+   let x = false;
+      if(operator == '+'){ x = true; }
+      if(operator == '-'){ x = true; }
+      if(operator == 'x'){ x = true; }
+      if(operator == '/'){ x = true; }
+      if(operator == '('){ x = true; }
+      if(operator == ')'){ x = true; }
+    return x;
+  }
+   // --- for empty array
+   function ForArrEmpty(){
+    let x = false;
+      if(operator == '-'){ x = true; }
+      if(operator == '('){ x = true; }
+    return x;
+  }
+
+  function mes_2(){
+    console.log("[ ADD OPERATOR ] - acces denied!")
+  }
+
+  function addToArray(){
+    arr.push (variable);                   // :: Add last variable to array 
+    arr.push (operator);                   // :: Then add operation sign
+    variable = "";                         // :: Reset variable
+    dot = false;                           // :: Reset dot because new variable is null
+  }
+} 
+
+// ---------------------------------------------------------------------
+//  RESET to default
+// ---------------------------------------------------------------------
+
+function reset(){
+  variable = 0; 
+  dot = false;  
   arr.length = 0;
-  variable = 0;
-  dot = false;
-
-/*   counter = null;
-  denominator = null;
-  targetOperation = "";
-  targetPosition = null; */
+  console.log("[ RESET  ] - variable [", variable, "] dot [", dot, "] arr.length [", arr.length, "]");
 }
 
+// ---------------------------------------------------------------------
+//  DOT - allow add dot if variable hawe no one
+// ---------------------------------------------------------------------
 
-
-function add_Value(value) {
-  /* if(value == 0 || variable == "0.") {        // :: 0.0 is true
-    variable = "0.0";
-  } else { */
-  variable = Number(variable += "" + value);     // :: add value -> variable
-   void std_cout(arr, variable);                                           
+function dots(){
+  if(dot == false) {                      
+    variable += ".";                      
+    dot = true;                           
+  } else {                                
+    variable = variable; 
+  }                
 }
 
-// output 
+// ---------------------------------------------------------------------
+//  OUTPUT
+//  if array is empty then output only variable as a string 
+//     else add to string array and then variable
+// ---------------------------------------------------------------------
+
 function std_cout(arr, variable) {
   let str = "";
-  if(arr == 0) {
-    str = variable;
-    console.log("array is empty!");
-  } else {
-    str = arr.join('') + "" + variable;
-  } output.innerHTML = str;
-    console.log("--> ", str);
+  arr == 0 ? str = variable : str = arr.join('') + "" + variable;
+  output.innerHTML = str; 
+  console.table("[  ARRAY ] - ", arr);
+  console.log("[ OUTPUT ] - ", str);
 }
-

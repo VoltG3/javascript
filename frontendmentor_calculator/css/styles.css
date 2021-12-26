@@ -112,9 +112,12 @@ body {
         .btn:nth-child(4),    /* ADD */
         .btn:nth-child(5),    /* DEL */
         .btn:nth-child(9),    /* SUBTRACT */
+        .btn:nth-child(10),   /* POW */
         .btn:nth-child(14),   /* SUBLIME */
+        .btn:nth-child(15),   /* ( */
         .btn:nth-child(18),   /* PRECENT */
         .btn:nth-child(19),   /* DIVIDE */
+        .btn:nth-child(20),   /* ) */
         .btn:nth-child(21),   /* RESET */
         .btn:nth-child(22) {  /* RESULT */ 
           font-size: 18px;
