@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<htm lang="en">
+    <head>
+        <meta content="text/xmln;charset=utf-8" http-equiv="Content-Type">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+            <link rel="stylesheet" type="text/css" href="index.css" />
+            <title>Particles</title>
+    </head>
+    <body>
+        <canvas id="landscape"></canvas>
+
+        <div id="terminal">
+            <div id="terminal--header"></div>
+            <div id="terminal--body">
+
+                <div class="toggler--set"> <!-- Landscape -->
+                    <div class="toggler--description"><h5>Landscape</h5></div>
+                    <input type="range" min="0" max="100" value="0"
+                          class="slider" id="sliderLandscape" name="sliderLandscape"></input>
+                    <label for="sliderLanscape" id="landscapeText">0%</label>
+                </div>
+
+                <div class="toggler--set"> <!-- Speed -->
+                    <div class="toggler--description"><h5>Speed</h5></div>
+                    <input type="range" min="0" max="100" value="0"
+                          class="slider" id="sliderParticles" name="sliderParticles"></input>
+                    <label for="sliderParticles" id="particlesText">0%</label>
+                </div>
+
+                <div class="toggler--set"> <!-- Intensity -->
+                    <div class="toggler--description"><h5>Intensity</h5></div>
+                    <input type="range" min="0" max="18" value="0"
+                          class="slider" id="sliderIntensity" name="sliderIntensity"></input>
+                    <label for="sliderIntensity" id="intensityText">0%</label>
+                </div>
+
+                <div class="toggler--set"> <!-- Weather -->
+                    <div class="toggler--description"><h5>Weather</h5></div>
+                    <input type="range" min="-100" max="100" value="0"
+                          class="slider" id="sliderWeather" name="sliderWeather"></input>
+                    <label for="sliderWeather" id="weatherText">0</label>
+                </div>
+            </div>
+
+            <div id="terminal--footer"></div>
+
+        
+         <script type="text/javascript" src="draggable.js"></script>
+         <script type="text/javascript" src="particles.js"></script>
+         <script type="text/javascript" src="sliderLandscape.js"></script>   
+         <script type="text/javascript" src="sliderParticles.js"></script> 
+         <script type="text/javascript" src="sliderIntensity.js"></script>
+         <script type="text/javascript" src="sliderWeather.js"></script>
+        </div>
+    </body>
+</htm>

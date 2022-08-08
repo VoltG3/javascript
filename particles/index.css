@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+:root {
+    --landscape--start: #040429;
+    --landscape--end: #257eb7;
+
+    --terminall--header--bg: #111111;
+    --terminall--body--bg: #1f1f1f;
+    --terminall--footer--bg: #111111;
+    --terminall--border: #2c2c2c;
+
+    --terminall--width: 350px;
+    --terminall--opacity: 1;
+
+    --sliderHeaders: #ffffff;
+}
+
+html, body {
+    margin: 0 auto;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px; 
+} h5, label {
+    margin: 0;
+    font-weight: bold;
+    color: var(--sliderHeaders);
+}
+
+canvas { /* HTML5 Canvas 100% Width and Height of Viewport */
+    height: 100vh; 
+    width: 100vw; 
+    display: block;
+}
+
+    #landscape {
+        z-index:0;
+        background:-moz-linear-gradient(top, var(--landscape--start), var(--landscape--end));
+    }
+     /*  #mountains, #grass {
+                    width:100%;
+                    position:absolute;
+                    bottom:0;
+                }
+                #mountains {
+                    height:156px;
+                    z-index:1;
+                    background:url(mountains.png) repeat-x 0 0;
+                }
+                #grass {
+                    height:62px;
+                    z-index:2;
+                    background:url(grass.png) repeat-x left 10px;
+                } */
+
+#terminal {
+    position: absolute;
+    z-index: 9;
+    background: #f1f1f1;
+        width: var(--terminall--width);
+        height: 250px;
+    top: 20px;
+    right: 20px;
+    opacity: var(--terminall--opacity);
+}
+
+#terminal--header {
+    position: absolute;
+    z-index: 10;
+    cursor: move;
+    background: var(--terminall--header--bg);
+        width: var(--terminall--width);
+        height: 20px;
+} 
+
+#terminal--body {
+    position: absolute;
+    z-index: 10;
+    background: var(--terminall--body--bg);
+        width: var(--terminall--width);
+        height: 210px;
+    top: 20px;
+    opacity: var(--terminall--opacity);
+}
+
+    .toggler--set {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: calc(var(--terminall--width) - 16px);
+        padding-left: 8px;
+        border-bottom: solid 1px var(--terminall--border);
+    }
+
+        .toggler--description {
+            display: flex;
+            width: var(--terminall--width);
+
+        } 
+        
+        input {
+            position: absolute;
+        }
+
+#terminal--footer {
+    position: absolute;
+    z-index: 10;
+    background: var(--terminall--footer--bg);
+        width: var(--terminall--width);
+        height: 20px;
+    top: 230px;
+    opacity: var(--terminall--opacity);
+}
+
+
+  
